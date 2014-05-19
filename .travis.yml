@@ -8,6 +8,5 @@ deploy:
   secret_access_key:  sa3HSyHWXRM8rSxJKjn/ZoT/pnAK5qUKgvCwFKYG
   bucket: opq1234
      skip_cleanup: true
-   endpoint: s3-website-us-east-1.amazonaws.com
   on:
     repo: nivedharajaram/opq1234
