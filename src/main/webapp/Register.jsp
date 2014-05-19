@@ -17,13 +17,13 @@
             <form action="UserRegistration" method="POST">
 
                 <%
-                    if (request.getAttribute("SuccessMsg") != null) {
-                         out.println(request.getAttribute("Registration Succeded"));
+                    if (request.getAttribute("SuccessMsg") != null && request.getAttribute("SuccessMsg") != "" ) {
+                         out.println("Registration Succeded");
                         out.println(request.getAttribute("SuccessMsg"));
                     }   
-                    else if (request.getAttribute("FailureMsg") != null) 
-                         out.println(request.getAttribute("Registration Failed"));
-                        out.println(request.getAttribute("FailureMsg"));
+                    if (request.getAttribute("ErrorMsg") != null && request.getAttribute("ErrorMsg") != "") {
+                         out.println("Registration Failed");
+                        out.println(request.getAttribute("ErrorMsg"));
                     }   
                                         
                  %>    
@@ -45,10 +45,10 @@
 
 
                 <label>Password :</label> <br>			
-                <input type="text" name="password" type="password"/><br>		
+                <input type="password" name="password" type="password"/><br>		
 
                 <label>Confirmation Password :</label> <br>			
-                <input type="text" name="confirmation" type="confirmation"/><br>		
+                <input type="password" name="confirmation" type="confirmation"/><br>		
 
 
                 <input name="submit" type="submit" value="submit">			

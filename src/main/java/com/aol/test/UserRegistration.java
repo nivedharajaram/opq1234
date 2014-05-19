@@ -61,7 +61,8 @@ public class UserRegistration extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StringBuffer sb = null;
-        
+        successMsg="";
+        failureMsg="";
         try {
 
             String postResString = "";
@@ -115,14 +116,14 @@ public class UserRegistration extends HttpServlet {
         Elements errorMsgs = doc.select(".error-msg ul");
 		if(errorMsgs.size() > 0) {
 			for(Element elem : errorMsgs) {
-				successMsg += elem.html();
+				failureMsg += elem.html();
 			}
 		}
 
 		//Check if success message is present, add to map if it is
 		Elements successMsgs = doc.select(".success-msg ul");
 		if(successMsgs.size() > 0) {
-			failureMsg = successMsgs.text();
+		successMsg = successMsgs.text();
 		}
     
     }
