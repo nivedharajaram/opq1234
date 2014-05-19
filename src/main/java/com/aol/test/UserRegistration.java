@@ -33,7 +33,8 @@ public class UserRegistration extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private HttpClient client = null;
     private UserVO user = null;
-    private  String Message = "";
+    String successMsg="";
+    String failureMsg="";
     public void init() throws ServletException {
     }
 
@@ -96,8 +97,9 @@ public class UserRegistration extends HttpServlet {
             HttpResponse postRes = client.execute(httpPost);
 
             postResString = EntityUtils.toString(postRes.getEntity());
-               Message =  parseResponseMessage(postResString);
-                    request.setAttribute("message", Message);
+                 parseResponseMessage(postResString);
+                    request.setAttribute("SuccessMsg", successMsg);
+                    request.setAttribute("ErrorMsg", failureMsg);
    ServletContext context= getServletContext();
             context.getRequestDispatcher("/Register.jsp").forward(request, response);
          
@@ -107,21 +109,21 @@ public class UserRegistration extends HttpServlet {
 
     }
     
-    private String  parseResponseMessage(String postResString) {
+    private void  parseResponseMessage(String postResString) {
         Document doc = Jsoup.parse(postResString);	
 
         Elements errorMsgs = doc.select(".error-msg ul");
 		if(errorMsgs.size() > 0) {
 			for(Element elem : errorMsgs) {
-				Message += elem.html();
+				successMsg += elem.html();
 			}
 		}
 
 		//Check if success message is present, add to map if it is
 		Elements successMsgs = doc.select(".success-msg ul");
 		if(successMsgs.size() > 0) {
-			Message = successMsgs.text();
+			failureMsg = successMsgs.text();
 		}
-     return Message;
+    
     }
 }

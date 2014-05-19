@@ -17,9 +17,15 @@
             <form action="UserRegistration" method="POST">
 
                 <%
-                    if (request.getAttribute("message") != null) {
-                        out.println(request.getAttribute("message"));
-                    }                       
+                    if (request.getAttribute("SuccessMsg") != null) {
+                         out.println(request.getAttribute("Registration Succeded"));
+                        out.println(request.getAttribute("SuccessMsg"));
+                    }   
+                    else if (request.getAttribute("FailureMsg") != null) 
+                         out.println(request.getAttribute("Registration Failed"));
+                        out.println(request.getAttribute("FailureMsg"));
+                    }   
+                                        
                  %>    
 
 
@@ -45,7 +51,7 @@
                 <input type="text" name="confirmation" type="confirmation"/><br>		
 
 
-                <input type="submit" value="submit">			
+                <input name="submit" type="submit" value="submit">			
                 </div>
             </form>
     </body>
