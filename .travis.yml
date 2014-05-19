@@ -5,8 +5,7 @@ jdk:
 deploy:
   provider: s3
   access_key_id: AKIAIFAZXIA72IVMSDNA
-  secret_access_key:
-    secure: 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
+  secret_access_key: e+3VXV+Sm8pe3sHYbuoSiz1T2V4HXp/SZd3HqMK1
   bucket: opq1234
   skip_cleanup: true
   on:
