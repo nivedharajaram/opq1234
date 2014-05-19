@@ -7,6 +7,6 @@ deploy:
   access_key_id: AKIAJVHQ7JDCYCCOVPEA
   secret_access_key:  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
   bucket: opq1234
-     skip_cleanup: true
+  skip_cleanup: true
   on:
     repo: nivedharajaram/opq1234
