@@ -32,6 +32,7 @@ public class UserRegistration extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private HttpClient client = null;
+    private UserVO user = null;
     String successMsg="";
     String failureMsg="";
     public void init() throws ServletException {
@@ -100,7 +101,7 @@ public class UserRegistration extends HttpServlet {
                  parseResponseMessage(postResString);
                     request.setAttribute("SuccessMsg", successMsg);
                     request.setAttribute("ErrorMsg", failureMsg);
-   	    ServletContext context= getServletContext();
+   ServletContext context= getServletContext();
             context.getRequestDispatcher("/Register.jsp").forward(request, response);
          
       } catch (Exception ex) {
@@ -119,10 +120,10 @@ public class UserRegistration extends HttpServlet {
 			}
 		}
 
-	Elements successMsgs = doc.select(".success-msg ul");
-		if(successMsgs.size() > 0) 
-		{
-			successMsg = successMsgs.text();
+		//Check if success message is present, add to map if it is
+		Elements successMsgs = doc.select(".success-msg ul");
+		if(successMsgs.size() > 0) {
+		successMsg = successMsgs.text();
 		}
     
     }
