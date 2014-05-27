@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="screen">
     <body>
         <div id="container" >
-            <form action="UserRegistration" method="POST">
+            <form id="form" action="UserRegistration" method="POST">
 
                 <%
                     if (request.getAttribute("SuccessMsg") != null && request.getAttribute("SuccessMsg") != "" ) {
@@ -33,25 +33,25 @@
 
                 <label>Firstname :</label>	
                 <br>
-                <input type="text" name="firstname"/><br>		
+                <input id ="firstname" type="text" name="firstname"/><br>		
 
 
                 <label>Lastname :</label> <br>			
-                <input type="text" name="lastname"/><br>		
+                <input id ="lastname" type="text" name="lastname"/><br>		
 
 
                 <label>Email Id :</label> <br>			
-                <input type="text" name="email"/><br>		
+                <input id ="email" type="text" name="email"/><br>		
 
 
                 <label>Password :</label> <br>			
-                <input type="password" name="password" type="password"/><br>		
+                <input id ="password" type="password" name="password" type="password"/><br>		
 
                 <label>Confirmation Password :</label> <br>			
-                <input type="password" name="confirmation" type="confirmation"/><br>		
+                <input id ="confirmation" type="password" name="confirmation" type="confirmation"/><br>		
 
 
-                <input name="submit" type="submit" value="submit">			
+                <input id="submit" name="submit" type="submit" value="submit">			
                 </div>
             </form>
     </body>

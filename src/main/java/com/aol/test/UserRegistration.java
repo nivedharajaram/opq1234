@@ -112,7 +112,7 @@ public class UserRegistration extends HttpServlet {
     
     private void  parseResponseMessage(String postResString) {
         Document doc = Jsoup.parse(postResString);	
-
+System.out.println(doc.body());
         Elements errorMsgs = doc.select(".error-msg ul");
 		if(errorMsgs.size() > 0) {
 			for(Element elem : errorMsgs) {
