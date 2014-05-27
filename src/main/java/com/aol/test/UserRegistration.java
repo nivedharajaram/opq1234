@@ -67,7 +67,7 @@ public class UserRegistration extends HttpServlet {
 
             String postResString = "";
 
-            BasicClientCookie cookie = new BasicClientCookie("ipq1234", "ipq1234");
+            BasicClientCookie cookie = new BasicClientCookie("opq1234", "opq1234");
             cookie.setDomain("myopenissues.com");
             cookie.setPath("/magento");
 
