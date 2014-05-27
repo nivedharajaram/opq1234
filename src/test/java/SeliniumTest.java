@@ -90,7 +90,7 @@ public class SeliniumTest {
         element=driver.findElement(By.id("form"));
         element.submit();
 
-        System.out.println("Page title is: " + element.getText().contentEquals("Registration Failed"));
+    //    System.out.println("Page title is: " + element.getText().contentEquals("Registration Failed"));
 
         driver.quit();
     }
